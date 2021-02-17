@@ -1,0 +1,91 @@
+<html>
+
+<head>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', { 'packages': ['gantt'] });
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Task ID');
+      data.addColumn('string', 'Task Name');
+      data.addColumn('string', 'Resource');
+      data.addColumn('date', 'Start Date');
+      data.addColumn('date', 'End Date');
+      data.addColumn('number', 'Duration');
+      data.addColumn('number', 'Percent Complete');
+      data.addColumn('string', 'Dependencies');
+
+      data.addRows([
+        // WEEK 1-2
+        ['interview_w1-2', 'Interview Miller', 'week 1-2',
+          new Date(2021, 1, 1), new Date(2021, 1, 9), null, 100, null],
+        ['coding-analyze_w1-2', 'Coding & Analyze', 'week 1-2',
+          new Date(2021, 1, 1), new Date(2021, 1, 14), null, 100, null],
+
+        // WEEK 3-4
+        ['interview-guide_w3-4', 'Design interview guide', 'week 3-4',
+          new Date(2021, 1, 15), new Date(2021, 1, 28), null, 0, null],
+        ['online-interview_w3-4', 'Online interview w families Bornholm', 'week 3-4',
+          new Date(2021, 1, 15), new Date(2021, 1, 28), null, 0, null],
+        ['interview_w3-4', 'Interview families Copenhagen', 'week 3-4',
+          new Date(2021, 1, 15), new Date(2021, 1, 28), null, 0, null],
+        ['future-workshop_w3-4', 'Design Activity: Future workshop', 'week 3-4',
+          new Date(2021, 1, 15), new Date(2021, 1, 28), null, 0, null],
+        ['expert-interview_w3-4', 'Expert interview (game designer)', 'week 3-4',
+          new Date(2021, 1, 15), new Date(2021, 1, 28), null, 0, null],
+        ['rapid-prototyping_w3-4', 'Rapid Prototyping', 'week 3-4',
+          new Date(2021, 1, 15), new Date(2021, 1, 28), null, 0, null],
+        ['cultural-probes_w3-4', 'Cultural Probes', 'week 3-4',
+          new Date(2021, 1, 15), new Date(2021, 1, 28), null, 0, null],
+
+        // WEEK 5-6
+        ['design-activities_w5-6', 'Design activities Bornholm', 'week 5-6',
+          new Date(2021, 2, 1), new Date(2021, 2, 14), null, 0, null],
+
+        // WEEK 7-9
+        ['interviews_w7-9', 'Interviews', 'week 7-9',
+          new Date(2021, 2, 15), new Date(2021, 3, 11), null, 0, null],
+          ['media-go-along_w7-9', 'Media-go-along', 'week 7-9',
+          new Date(2021, 2, 15), new Date(2021, 3, 11), null, 0, null],
+          ['design-criticism_w7-9', 'Design Criticism', 'week 7-9',
+          new Date(2021, 2, 15), new Date(2021, 3, 11), null, 0, null],
+          ['think-aloud_w7-9', 'Think Aloud', 'week 7-9',
+          new Date(2021, 2, 15), new Date(2021, 3, 11), null, 0, null],
+          ['ab-testing_w7-9', 'A/B Testing', 'week 7-9',
+          new Date(2021, 2, 15), new Date(2021, 3, 11), null, 0, null],
+          
+          // WEEK 10-11
+          ['final-prototype_w10-11', 'Final Prototype', 'week 10-11',
+            new Date(2021, 3, 12), new Date(2021, 3, 25), null, 0, null],
+
+          // WEEK 12-13
+          ['buffer_w12-13', 'Buffer: Unforeseen challenges', 'week 12-13',
+            new Date(2021, 3, 26), new Date(2021, 3, 30), null, 0, null],
+
+          // WEEK 14-18
+          ['finish_w14-18', 'Finish project & report', 'week 14-18',
+            new Date(2021, 4, 1), new Date(2021, 4, 31), null, 0, null],
+        ]);
+
+      var options = {
+        height: screen.height,
+        gantt: {
+          trackHeight: 30
+        }
+      };
+
+      var chart = new google.visualization.Gantt(document.getElementById('chart_div'));
+
+      chart.draw(data, options);
+    }
+  </script>
+</head>
+
+<body>
+  <div id="chart_div"></div>
+</body>
+
+</html>
